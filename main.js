@@ -80,24 +80,6 @@ const cargarPreguntaYRespuestas = (pregunta) => { //le pasamos a la función un 
   answerButtonsElement.innerHTML = ""; // limpia respuestas anteriores
 
 
-
-
-//Creamos función mostrarAlerta para desocultar la alerta (está oculta durante todo el quiz)
-function mostrarAlerta() {
-  alerta.classList.remove("d-none");
-}
-
-
-//Vinculamos el "next" button con la siguiente posición del índice de preguntas (excepto en la última posición/pregunta -> alerta)
-nextButton.addEventListener("click", () => {
-  currentQuestionIndex++; //se mueve una posición el contador de preguntas
-  if (currentQuestionIndex < preguntas.length) {
-    cargarPreguntaYRespuestas(preguntas[currentQuestionIndex]);
-  } else {
-    mostrarAlerta(); //mostrar alerta de Well done!
-  }
-});
-
   // Combina y mezcla las respuestas
   const respuestas = pregunta.incorrect_answers.concat(pregunta.correct_answer); //const respuestas genera un array
   respuestas.sort(() => Math.random() - 0.5); 
@@ -137,5 +119,17 @@ function seleccionarRespuesta(e) {
   nextButton.classList.remove("d-none");
 }
 
+//Creamos función mostrarAlerta para desocultar la alerta (está oculta durante todo el quiz)
+function mostrarAlerta() {
+  alerta.classList.remove("d-none");
+}
 
-
+//Vinculamos el "next" button con la siguiente posición del índice de preguntas (excepto en la última posición/pregunta -> alerta)
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++; //se mueve una posición el contador de preguntas
+  if (currentQuestionIndex < preguntas.length) {
+    cargarPreguntaYRespuestas(preguntas[currentQuestionIndex]);
+  } else {
+    mostrarAlerta(); //mostrar alerta de Well done!
+  }
+});
