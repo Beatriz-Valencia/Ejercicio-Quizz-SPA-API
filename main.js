@@ -53,6 +53,14 @@ buttonVolverInicio.addEventListener("click", mostrarInicio)
 let currentQuestionIndex = 0;
 let preguntas = [] //almacenamos las preguntas
 
+//Asociar el botón start a función que hace la llamada a la API
+startButton.addEventListener("click", () => {
+  startButton.classList.add("d-none");
+  questionContainerElement.classList.remove("d-none");
+  getAPIInfo();
+
+})
+
 //Petición a la API con axios (devuelve promesa aunque no se vea). Manejo de la respuesta de la promesa con async/await:
 async function getAPIInfo() {
   try {
@@ -72,13 +80,7 @@ const cargarPreguntaYRespuestas = (pregunta) => { //le pasamos a la función un 
   answerButtonsElement.innerHTML = ""; // limpia respuestas anteriores
 
 
-//Asociar el botón start a función que hace la llamada a la API
-startButton.addEventListener("click", () => {
-  startButton.classList.add("d-none");
-  questionContainerElement.classList.remove("d-none");
-  getAPIInfo();
 
-})
 
 //Creamos función mostrarAlerta para desocultar la alerta (está oculta durante todo el quiz)
 function mostrarAlerta() {
