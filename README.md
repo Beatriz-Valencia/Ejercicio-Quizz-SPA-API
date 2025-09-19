@@ -27,7 +27,5 @@ Se han instalado las siguientes librerías y estilos para el desarrollo del jueg
    ```bash
 	git clone https://github.com/Beatriz-Valencia/Ejercicio-Quizz-SPA-API.git
 
-
-
-
 No olvides comentar a otros sobre este proyecto. Gracias por visitor mi portfolio, ¡disfruta del juego!
+
